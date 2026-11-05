@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "desktopVersion": "2.0.22-next",
+  "exeSha256": "ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288",
+  "originalSha256": "c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e",
+  "patchedSha256": "c525939eb23116128a22bf23a78b692abe7995f65ec5baf7b509ca1290262000",
+  "files": {
+    "lib/main.js": "c17968a7ee3bd519af23b8aa3958fde6563137b325530c2d9306dabb60466bf4",
+    "lib/web-document-ZxxDXtoU.js": "025ef674d2692a20729f3b8a8a554bf3f4b39df5b905944d8bc30112040a0460",
+    "lib/native-boot-carrier.mjs": "73491420acf7aae90d2373c870d24d833d64ca469987749d678c6bef30a83983"
+  },
+  "runtimeFiles": {
+    "runtime/scene/brand.js": "9133132dba57f3eed887768752e41015b4286293f6f8b794cb1d49ce25a39475",
+    "runtime/scene/animation.js": "61a55db356ce2f89e30ce1e098a66c1e1f61bc88699c617a81564e6a97c4e038",
+    "runtime/scene/morph.js": "923240333c95301d9a6f90bd72e8aca28d87b944c3f63f91138825c9b8971434",
+    "runtime/scene/desktop-composition.js": "145c4c50098b6c551bd624c34009669bb9292ec7f1d468d587afa2ef10a0e4fa",
+    "runtime/scene/responsive-composition.js": "391f25bdafd44620d5b061ffb2b8fb19b8adf80c0085f8bcc6ef68a792255ec3",
+    "runtime/scene/portrait-camera.js": "153ec0432d12c76de19bfea462352784b003b9888717c0df8d4dbc8c71c23fa4",
+    "runtime/safe-video.js": "85bcbbc541df93083e7c5d70fc7311350b4ee268730a346ccba1ab1e94107fa9",
+    "runtime/stage.js": "f0407d0293f61ea84bde9de3062cd057cf116cd509f54859fc554dd9eb2512db",
+    "runtime/bootstrap.js": "c82de55af6009153e68dfc54dee1a52060d9e3d9c927620c43e20496bc23ac03",
+    "media/builtins.json": "0c4f44e6377853defb2c052e5613552af88f37342e0f7d415e4d522e9e0c84dd",
+    "media/boot.mp4": "7cd3f3bb33afa18ee2591e10e0d52c6838bd7aa09518780c90628fac3e752849",
+    "media/poster.png": "91395701dd37dec4b3a9f7eb7daf3b5f884f6f3f5f3bb45496ea2613a0e2ff6f",
+    "media/codex.mp4": "9a3a11a7edd9ff1c2185e293f69aed75495f935c665ecb09b3df751900b306a5",
+    "media/codex-poster.png": "7729cb2116c4de284f23d6f3fe0a490437837894bcf9672f064603247c4e5851",
+    "media/claude-code.mp4": "24968a5910759fa1824efbeb6db662c97d5d22754ad4898259f2ca7ddb5787ea",
+    "media/claude-code-poster.png": "8402c9b2a467593c33170c15cbbad029a38c9400772563b60a2c3628c63cba1a"
+  },
+  "packageVersions": [
+    "0.7.1"
+  ],
+  "previousManagedSha256s": []
+}

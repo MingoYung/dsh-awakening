@@ -1,0 +1,98 @@
+{
+  "version": "0.7.1",
+  "passed": true,
+  "checkedAt": "2026-11-05T05:12:10.662219+00:00",
+  "sourceSnapshot": "Canonical staged Git bytes; the package is subsequently created from a clean sealed Git archive, whose commit is recorded with the release asset.",
+  "change": "Add an independent exact Windows NEXT 2.0.22-next first-screen profile and support package 0.7.1 on prior audited .19/.21 builds. Ordinary player, library behavior, framing and all three films retain their 0.7.0 bytes.",
+  "builds": [
+    {
+      "desktop": "2.0.19-next",
+      "exeSha256": "2c12759a3c3f24f2e6776dae4e511cf5984b227f5e4322fd826fea647bf503b6",
+      "originalAsarSha256": "204e1dcc32ff6a9b661200b7ab97bda1cbd449904e2eddb71c9309cf767e06b5",
+      "candidateAsarSha256": "9174f5f23f40692da524af854c1eb9c9a8b406344406ff7e7d4e502bc45ede98",
+      "policy": "tools/native-install/policy.json",
+      "runtimePins": 16,
+      "payloadPins": 3
+    },
+    {
+      "desktop": "2.0.21-next",
+      "exeSha256": "423feb86156366aa2bc3374933f579027aef44bcc439c5743b72231d480afc00",
+      "originalAsarSha256": "16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349",
+      "candidateAsarSha256": "668f5cb3e41671b637d65eb1b94060a1b12fa4beb58926405799a440b6423c9b",
+      "policy": "tools/native-install/builds/2.0.21-next/policy.json",
+      "runtimePins": 16,
+      "payloadPins": 3
+    },
+    {
+      "desktop": "2.0.22-next",
+      "exeSha256": "ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288",
+      "originalAsarSha256": "c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e",
+      "candidateAsarSha256": "c525939eb23116128a22bf23a78b692abe7995f65ec5baf7b509ca1290262000",
+      "policy": "tools/native-install/builds/2.0.22-next/policy.json",
+      "runtimePins": 16,
+      "payloadPins": 3
+    }
+  ],
+  "core": {
+    "actualCore": "0.2.2-rc.1",
+    "ordinaryAbiRecord": "verification/v0.7.1-core.json",
+    "actualModulesChecked": true,
+    "playbackSourceUnchanged": true,
+    "engineIncludesPrereleases": true
+  },
+  "native": {
+    "record": "verification/v0.7.1-native.json",
+    "newDocumentImplementation": "lib/web-document-ZxxDXtoU.js",
+    "legacyBarrelUnmodified": true,
+    "exactExeSelectsIndependentPolicy": true,
+    "newUnknownBuildsRejected": true,
+    "keepsOriginalPerBuildBackup": true,
+    "updatesRequireExplicitActionAndRestart": true,
+    "exeFusesAndNativeAuthorizationNotChanged": true
+  },
+  "media": [
+    {
+      "id": "builtin:awakening",
+      "bytes": 8170415,
+      "sha256": "7cd3f3bb33afa18ee2591e10e0d52c6838bd7aa09518780c90628fac3e752849"
+    },
+    {
+      "id": "builtin:codex",
+      "bytes": 5920928,
+      "sha256": "9a3a11a7edd9ff1c2185e293f69aed75495f935c665ecb09b3df751900b306a5"
+    },
+    {
+      "id": "builtin:claude-code",
+      "bytes": 4207749,
+      "sha256": "24968a5910759fa1824efbeb6db662c97d5d22754ad4898259f2ca7ddb5787ea"
+    }
+  ],
+  "humanEvidence": {
+    "prior070ThreeFilmsAndNativePlayerAccepted": true,
+    "new022Native071RestartRecordedInThisPreinstallProof": false
+  },
+  "limitations": [
+    "Native installation/rollback checks use isolated exact archive copies and synthetic executable/worker capability fixtures; production restart is recorded separately.",
+    "The actual new core module checks use controlled transport/store/DOM boundaries, not a full production Profile or audio replay.",
+    "Support applies to the exact EXE/original archive identities above."
+  ],
+  "sha256": {
+    "package.json": "c50b7584166c15fd57da2a477f5d1e6cdb0366744291ee77d93ced54fa798dbe",
+    "package-lock.json": "5e8dec8df7d15f5a97144f9eca23fd3e969b3c11800914675fea3249e6839da3",
+    "lib/index.js": "fffb4459b2a4ef20d10a4cdd36a35f704e46eaa92fc5979d1dceb6efd6f5a209",
+    "lib/client.js": "c313c360e8469c648b4bdcd88511f6d4c1a1334cb26e15fc840040a016f23952",
+    "runtime/stage.js": "f0407d0293f61ea84bde9de3062cd057cf116cd509f54859fc554dd9eb2512db",
+    "runtime/safe-video.js": "85bcbbc541df93083e7c5d70fc7311350b4ee268730a346ccba1ab1e94107fa9",
+    "media/builtins.json": "0c4f44e6377853defb2c052e5613552af88f37342e0f7d415e4d522e9e0c84dd",
+    "scripts/verify.mjs": "1cc94f360cef5026ec972a04abe93d76a933923230aae36eea8e68ff22fd63a1",
+    "README.md": "593c6b0a558a4d0e8988ec0b4b7f06ff35d24faee7d1621485cad22c933f32b3",
+    "COMPATIBILITY.md": "1399223b1eb31efec2bdecfbe5208a8e305b558dce7f7f20ea09d1e1e8e25816",
+    "CREDITS.md": "7bea9b3de4b3a4f574c74844c3a1bce9927d20f0d38b3c80fcaed33757b601cf",
+    "CHANGELOG.md": "23cdd9b61d0212847d759bc784d29a97a2466dddd0205ee4c58e0cfac71802e2",
+    "verification/v0.7.1-core.json": "6bae11f83317f8b1a8ac2c4d991384ed7923efd8502fc02ee3d54d2321513f18",
+    "verification/v0.7.1-native.json": "f02426ee760a3fae5bb2bfdccb5c050c9382b57b0be27bdf4d68730d5015252a",
+    "tools/native-install/policy.json": "bd4ac42bfc250f50f0de865c83acb9a1fda20749e8194616fb9b3ac38e39c9ae",
+    "tools/native-install/builds/2.0.21-next/policy.json": "4fa15b040bff9d835f106eb14e69718520a6406bbda4a61fa58b5c7555320d40",
+    "tools/native-install/builds/2.0.22-next/policy.json": "5f6eb03cdb7ddb628fad3c1f88f075334d88d27f77f428870da901568f7c6b4f"
+  }
+}

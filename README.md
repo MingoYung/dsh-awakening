@@ -2,7 +2,7 @@
 
 可更换作品的 DSH 开机动画插件。内置 **DeepSeek · 鲸启、Codex · 构想成形、Claude Code · 光标唤醒** 三款22秒有声作品，可在插件内预览、切换，也可导入 MP4 / WebM 或浏览社区动画库。
 
-**正式版：[v0.7.0](https://github.com/MingoYung/dsh-awakening/releases/tag/v0.7.0)** · [预构建安装包](https://github.com/MingoYung/dsh-awakening/releases/download/v0.7.0/dsh-awakening-0.7.0.tgz) · [动画库](https://github.com/MingoYung/dsh-awakening-library)
+**当前版本：[v0.7.1](https://github.com/MingoYung/dsh-awakening/releases/tag/v0.7.1)** · [预构建安装包](https://github.com/MingoYung/dsh-awakening/releases/download/v0.7.1/dsh-awakening-0.7.1.tgz) · [动画库](https://github.com/MingoYung/dsh-awakening-library)
 
 以下设置图来自独立浏览器中的真实插件组件，不是 DSH 冷启动截图。
 
@@ -32,7 +32,7 @@ dsh plugin add /absolute/path/to/dsh-awakening
 
 安装或升级后重启 DSH。仓库和 `.tgz` 均提供客户端构建结果、媒体与本机工具，正常安装不需要本机构建。未发布至 npm，请以本仓库及固定 Release 为来源。
 
-从旧版升级会保留音量、播放频率和本地导入的视频；`builtin:awakening` 仍代表默认 DeepSeek 作品。已安装首屏兼容层的用户，需要在设置中的“首屏播放”显式选择“更新并重启”一次；普通插件更新不会悄悄改写桌面应用包。
+从旧版升级会保留音量、播放频率和本地导入的视频；`builtin:awakening` 仍代表默认 DeepSeek 作品。0.7.1更新桌面兼容识别与接线，三款影片、安全构图数据和原生video播放器沿用0.7.0。已安装首屏兼容层的用户，需要在设置中的“首屏播放”显式选择“更新并重启”一次；若DSH升级已换回默认原包，则选择“安装并重启”。普通插件更新不会自动改写桌面应用包。
 
 ## 预览、更换与社区动画库
 
@@ -60,13 +60,13 @@ dsh plugin add /absolute/path/to/dsh-awakening
 
 普通插件在 Host 就绪后注入。可选首屏兼容层接入桌面初始页面，让动画与后台加载并行，Host 接管同一个播放器和声音。
 
-当前支持已核验的 **Windows DSH NEXT 2.0.19-next 与 2.0.21-next 两种特定 EXE / 原始 ASAR 构建**；2.0.21-next 所带内核为 0.2.1-rc.4。工具按实际 EXE 摘要选择对应构建 profile，再核对该构建的原包或受管理包；显示版本号相同而文件不同也会拒绝。未知构建不会回退套用旧版 policy。完整摘要与范围见 [COMPATIBILITY.md](COMPATIBILITY.md)；其他版本、操作系统和普通浏览器仍可使用普通插件播放。
+0.7.1支持已核验的 **Windows DSH NEXT 2.0.19-next、2.0.21-next 与 2.0.22-next 三种特定 EXE / 原始 ASAR 构建**；2.0.21-next 所带内核为 0.2.1-rc.4，2.0.22-next 为 0.2.2-rc.1。工具按实际 EXE 摘要选择对应构建 profile，再核对该构建的原包或受管理包；显示版本号相同而文件不同也会拒绝。未知构建不会回退套用旧版 policy。完整摘要与范围见 [COMPATIBILITY.md](COMPATIBILITY.md)；其他版本、操作系统和普通浏览器仍可使用普通插件播放。
 
 在 **播放设置 → 首屏播放** 查看状态，明确选择“安装并重启”“更新并重启”或“恢复默认首屏并重启”。先保存工作；工具先准备可恢复的包，再正常退出 DSH，等待全部进程退出后校验、原子替换并重开。它不会强杀进程，不用固定延时猜测退出。取消、未知构建或校验失败会保留原包。
 
-该功能会显式修改 DSH 的 `resources/app.asar`，原始备份在同目录 `.dsh-awakening-backup/app.asar`。每种构建只接受自身原包及其摘要匹配的备份，不跨构建恢复；宿主升级后旧备份不能替代新原包，备份消失时先重新核验当前原包。不改 EXE、Electron fuse、快捷方式或账户配置。DSH 升级后需重新核验，不自动套用旧补丁。0.7.0 兼容载体按随包清单核对三款媒体和安全构图配置；更换作品不需要每次重写 ASAR。
+该功能会显式修改 DSH 的 `resources/app.asar`，原始备份在同目录 `.dsh-awakening-backup/app.asar`。每种构建只接受自身原包及其摘要匹配的备份，不跨构建恢复；宿主升级后旧备份不能替代新原包，备份消失时先重新核验当前原包。不改 EXE、Electron fuse、快捷方式或账户配置。DSH 升级后需重新核验，不自动套用旧补丁。0.7.1兼容工具按随包清单核对三款媒体和安全构图配置；更换作品不需要每次重写ASAR。
 
-2.0.21-next 接管保留原生 boot 的 `documentId` / `profile`、sender 校验与真实界面健康报告；动画与 UI 并行挂载，不伪报 healthy，不放宽原生请求鉴权。验证范围区分离线副本检查与实机启动，冷/热启动及窗口状态恢复结果分别记录。
+2.0.21-next与2.0.22-next接管保留原生boot的 `documentId` / `profile`、sender校验与真实界面健康报告；动画与UI并行挂载，不伪报healthy，不放宽原生请求鉴权。2.0.22-next按主进程的实际导入定位哈希命名的web-document实现模块，在真实首屏调用与该实现处接线，保留独立转发入口和新版功能。0.2.2-rc.1所带Cordis 4.1、Schemastery 3.19配置与设置接口单独核对；验证范围区分离线副本检查与实机启动，见[0.7.1验证记录](verification/v0.7.1.json)。
 
 手动入口：
 

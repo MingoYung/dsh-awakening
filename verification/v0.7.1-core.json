@@ -1,0 +1,119 @@
+{
+  "version": "0.7.1",
+  "passed": true,
+  "targetDesktopVersion": "2.0.22-next",
+  "targetCoreVersion": "0.2.2-rc.1",
+  "archiveSha256": "c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e",
+  "scope": "Actual shipped ordinary Host/client contracts previously executed with the byte-identical 0.7.0 runtime. This compatibility-only 0.7.1 release changes manifest/lock root version; the eight covered runtime/metadata files were checked unchanged. The new manifest was additionally accepted by the actual shipped client-manifest parser. Not a new full-profile boot or earliest-first-frame assertion.",
+  "priorActualContractChecks": 10,
+  "priorActualContractNames": [
+    "actual-core022rc1-module-bootstrap-materializes-with-zero-externals",
+    "actual-core022rc1-dsh-client-manifest-parser-accepts-release-declaration",
+    "actual-core022rc1-loader-registers-and-memoizes-release-factory-with-shipped-react-18",
+    "actual-core022rc1-configforms-get-snapshot-ready-writable-and-value",
+    "actual-core022rc1-configforms-subscribe-set-mutate-boolean-contract",
+    "actual-core022rc1-configforms-rejected-write-recovers-with-false",
+    "actual-core022rc1-slot-registry-registers-release-settings-panel",
+    "actual-core022rc1-cordis-index-inject-event-delivery",
+    "actual-core022rc1-host-index-row-renderer-keeps-head-global-script-protocol",
+    "actual-next22-browser-policy-is-compatible-with-plugin-native-request-guard-and-negative-controls"
+  ],
+  "unchangedCoveredFiles": {
+    "lib/index.js": "a544b488cadc1e06a0c3d4e9e52865bc7d4842068d076b5d79688c3a459579cc",
+    "lib/client.js": "c313c360e8469c648b4bdcd88511f6d4c1a1334cb26e15fc840040a016f23952",
+    "lib/native-api.js": "79d6128ad6bc3b3597c6d5fa97d46f6eb5019c9be91bf9ad33621ac33dc746df",
+    "lib/animation-library.mjs": "aa2929cc8e4589a01c4183b41b3406d5614e17c94c9312fe7475e42771d9958b",
+    "lib/builtins.mjs": "3c4053d7807dba2b5e683f3655af8deb1161843e660cfae0fbd13d9c1784ee4c",
+    "media/builtins.json": "0c4f44e6377853defb2c052e5613552af88f37342e0f7d415e4d522e9e0c84dd",
+    "runtime/stage.js": "f0407d0293f61ea84bde9de3062cd057cf116cd509f54859fc554dd9eb2512db",
+    "runtime/safe-video.js": "85bcbbc541df93083e7c5d70fc7311350b4ee268730a346ccba1ab1e94107fa9"
+  },
+  "additionalChecks": {
+    "manifestAndLockRootVersionAligned": true,
+    "manifestExceptVersionUnchanged": true,
+    "actualClientManifestParserAccepted071": true,
+    "actualClientManifestParserSha256": "74e834b85e44f75874198bb0e937de98fd78c2bc0c5145cc14032185f579731f"
+  },
+  "dependencyVersions": {
+    "core": "0.2.2-rc.1",
+    "desktop": "2.0.22-next",
+    "node": "v24.16.0",
+    "cordis": "4.1.0",
+    "schemastery": "3.19.0",
+    "react": "18.3.1"
+  },
+  "engineCompatibility": {
+    "manifestRange": ">=0.2.1-rc.2",
+    "actualConsumerIncludesPrerelease": true,
+    "requiresRangeChange": false,
+    "evidenceType": "Static inspection of the actual shipped consumer, not a fresh installation",
+    "actualConsumerFiles": [
+      {
+        "file": "node_modules/@deepseek-ai/dsh-app-boot/lib/index.js",
+        "sha256": "b1706ec0cf3807f0e1e1ffc050a158224c207804d87c879cac9c3318f8b9c2fc",
+        "regions": [
+          {
+            "line": 1094,
+            "symbol": "satisfies",
+            "observation": "semver.satisfies(runtimeVersion, range, { includePrerelease: true })"
+          },
+          {
+            "line": 1100,
+            "symbol": "unmetRequirements",
+            "observation": "Own engines.dsh calls satisfies and returns no unmet requirement when true"
+          },
+          {
+            "line": 1129,
+            "symbol": "evaluatePluginCompatibility",
+            "observation": "Uses unmetRequirements; undefined verdict when no requirements unmet"
+          }
+        ]
+      },
+      {
+        "file": "node_modules/@deepseek-ai/dsh-plugin-manager/lib/index.js",
+        "sha256": "b48ea73da730657f139db88d6793ade70271782e0e509b8833754b1011bbe60e",
+        "regions": [
+          {
+            "line": 12,
+            "observation": "Imports evaluatePluginCompatibility from dsh-app-boot"
+          },
+          {
+            "line": 699,
+            "observation": "Checks installed manifest with the shared evaluator"
+          },
+          {
+            "line": 822,
+            "observation": "Checks installation candidate with the shared evaluator"
+          }
+        ]
+      },
+      {
+        "file": "node_modules/@deepseek-ai/dsh-plugin-market/lib/index.js",
+        "sha256": "28ea59098d0d46f2732f80c70dd361177b4dc79f9b5f7ff95b6d9aa80ddc9697",
+        "regions": [
+          {
+            "line": 1486,
+            "symbol": "compatibilityOf",
+            "observation": "Delegates market engines.dsh requirements to evaluatePluginCompatibility"
+          }
+        ]
+      }
+    ]
+  },
+  "boundaries": [
+    "Actual shipped core022rc1 ClientModuleSystem, ConfigForms controller, SlotRegistry, Cordis and React were executed; remote RPC and snapshot-store transport primitives are isolated fixtures",
+    "React DOM renderer is not mounted; DOM exports are inert fixture boundaries, no real app/provider graph is booted",
+    "Host index-rendering function region is evaluated verbatim from shipped module, without starting its HTTP server",
+    "Native policy receives a synthetic capability string; real credentials/configuration were not read",
+    "Real DSH profile boot and native installation remain root validation tasks",
+    "Node v24.16.0 from the existing local development runtime executed these isolated checks; the new desktop EXE was not launched for this test.",
+    "Remote settings RPC/store and React DOM renderer are controlled fixture boundaries. Native policy uses a synthetic capability, not production credentials.",
+    "The Host HTTP server was not started and actual media/audio/render performance was not replayed; unchanged media/player bytes were identified.",
+    "This is a bounded ABI check for an already installed ordinary plugin. The package-manager consumer of engines.dsh and fresh installation prerelease-range enforcement was not exercised.",
+    "Optional earliest-first-screen compatibility requires a separate exact-build desktop adapter review; these ordinary-plugin checks do not establish it."
+  ],
+  "sourceChangedForThisCoreCheck": false,
+  "productionProfileStarted": false,
+  "productionFilesChanged": false,
+  "checkedAt": "2026-11-05T05:06:24.663Z"
+}

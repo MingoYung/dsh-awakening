@@ -27,22 +27,37 @@ for(const entry of media.entries){
  assert.ok(entry.presentation.keyframes.length>=2);for(const f of entry.presentation.keyframes){const[x,y,w,h]=f.safe;assert.ok(x>=0&&y>=0&&w>0&&h>0&&x+w<=1280&&y+h<=720);}
  for(const key of ['posterUrl','thumbnailUrl'])inside('media/'+path.posix.basename(new URL(entry[key],'http://local').pathname));
 }
-const policy=json('tools/native-install/policy.json');
-assert.ok(policy.packageVersions.includes(pkg.version));
-for(const rel of ['runtime/safe-video.js','runtime/stage.js','runtime/bootstrap.js','media/builtins.json','media/boot.mp4','media/codex.mp4','media/claude-code.mp4'])assert.ok(rel in policy.runtimeFiles,'Missing native pin: '+rel);
-for(const[rel,digest]of Object.entries(policy.runtimeFiles)){inside(rel);assert.equal(sha(read(rel)),digest,'Runtime/media pin differs: '+rel);}
-for(const[rel,digest]of Object.entries(policy.files)){assert.ok(rel.startsWith('lib/'));const local='tools/native-install/payload/'+rel.slice(4);inside(local);assert.equal(sha(read(local)),digest,'Native payload pin differs: '+local);}
-const nextRoot='tools/native-install/builds/2.0.21-next',next=json(nextRoot+'/policy.json');
-assert.equal(next.desktopVersion,'2.0.21-next');assert.ok(next.packageVersions.includes(pkg.version));
-assert.equal(next.exeSha256,'423feb86156366aa2bc3374933f579027aef44bcc439c5743b72231d480afc00');
-assert.equal(next.originalSha256,'16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349');
-assert.deepEqual(next.runtimeFiles,policy.runtimeFiles,'The desktop builds must share the reviewed movies and player.');
-for(const[rel,digest]of Object.entries(next.files)){assert.ok(rel.startsWith('lib/'));const local=nextRoot+'/payload/'+rel.slice(4);inside(local);assert.equal(sha(read(local)),digest,'New desktop payload differs: '+local);}
+// The build whitelist is explicit, never discovered from user input or folders.
+const profileSpecs=[
+ {root:'tools/native-install',version:'2.0.19-next',exe:'2c12759a3c3f24f2e6776dae4e511cf5984b227f5e4322fd826fea647bf503b6',original:'204e1dcc32ff6a9b661200b7ab97bda1cbd449904e2eddb71c9309cf767e06b5'},
+ {root:'tools/native-install/builds/2.0.21-next',version:'2.0.21-next',exe:'423feb86156366aa2bc3374933f579027aef44bcc439c5743b72231d480afc00',original:'16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349'},
+ {root:'tools/native-install/builds/2.0.22-next',version:'2.0.22-next',exe:'ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288',original:'c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e'},
+];
+const checkedProfiles=[],nativeSyntax=new Set(),digestPattern=/^[a-f0-9]{64}$/;
+const requiredRuntime=['runtime/safe-video.js','runtime/stage.js','runtime/bootstrap.js','media/builtins.json','media/boot.mp4','media/codex.mp4','media/claude-code.mp4'];
+for(const spec of profileSpecs){
+ inside(spec.root+'/policy.json');
+ const policy=json(spec.root+'/policy.json');
+ assert.equal(policy.desktopVersion,spec.version);assert.equal(policy.exeSha256,spec.exe);assert.equal(policy.originalSha256,spec.original);
+ assert.ok(policy.packageVersions.includes(pkg.version),'Missing package version in '+spec.version);
+ assert.match(policy.patchedSha256,digestPattern);assert.notEqual(policy.patchedSha256,policy.originalSha256);
+ for(const rel of requiredRuntime)assert.ok(rel in policy.runtimeFiles,'Missing native pin in '+spec.version+': '+rel);
+ if(checkedProfiles.length)assert.deepEqual(policy.runtimeFiles,checkedProfiles[0].policy.runtimeFiles,'Desktop builds must share the reviewed movies and player.');
+ for(const[rel,digest]of Object.entries(policy.runtimeFiles)){inside(rel);assert.match(digest,digestPattern);assert.equal(sha(read(rel)),digest,'Runtime/media pin differs: '+spec.version+': '+rel);}
+ assert.equal(Object.keys(policy.files).length,3,'Expected the three reviewed replacements in '+spec.version);
+ for(const[rel,digest]of Object.entries(policy.files)){
+  assert.match(rel,/^lib\/[A-Za-z0-9_.-]+\.(?:js|mjs)$/);assert.match(digest,digestPattern);
+  const local=spec.root+'/payload/'+rel.slice(4);inside(local);assert.equal(sha(read(local)),digest,'Native payload pin differs: '+local);nativeSyntax.add(local);
+ }
+ for(const helper of ['worker.ps1','launcher.ps1'])inside(spec.root+'/'+helper);
+ checkedProfiles.push({spec,policy});
+}
+const policy=checkedProfiles[0].policy;
 const client=read('lib/client.js').toString('utf8');assert.ok(client.startsWith('window.__ModuleLoader__.load('));new vm.Script(client);
 const output=await build({absWorkingDir:root,entryPoints:[path.join(root,'src/entry.jsx')],bundle:true,write:false,format:'cjs',platform:'browser',external:['react'],target:['chrome120']});
 const expected=`window.__ModuleLoader__.load({id:${JSON.stringify(pkg.name)},factory:function(require){\nvar module={exports:{}};var exports=module.exports;\n${output.outputFiles[0].text}\nreturn module.exports;\n}});\n`;
 assert.equal(client,expected,'Compiled client is stale; run npm run build.');
-for(const rel of ['lib/index.js','lib/animation-library.mjs','lib/builtins.mjs',...Object.keys(policy.runtimeFiles).filter(p=>p.endsWith('.js'))])execFileSync(process.execPath,['--check',inside(rel)],{stdio:'pipe',windowsHide:true});
+for(const rel of ['lib/index.js','lib/animation-library.mjs','lib/builtins.mjs',...Object.keys(policy.runtimeFiles).filter(p=>p.endsWith('.js')),'tools/native-install/index.mjs','tools/native-install/profiles.mjs','tools/native-install/cli.mjs','tools/native-install/engine.mjs','tools/native-install/asar.mjs',...nativeSyntax])execFileSync(process.execPath,['--check',inside(rel)],{stdio:'pipe',windowsHide:true});
 const shots=json('screenshots.json');assert.ok(shots.length>=1&&shots.length<=8);shots.forEach(inside);
 inside('CREDITS.md');inside('licenses/ORIGINAL-ANIMATIONS-CC-BY-4.0.md');
-console.log(JSON.stringify({passed:true,version:pkg.version,builtinMovies:3,desktopBuilds:[policy.desktopVersion,next.desktopVersion],nativePinsPerBuild:Object.keys(policy.runtimeFiles).length,payloadPins:Object.keys(policy.files).length+Object.keys(next.files).length,registeredClient:true,clientReproducible:true,clientSha256:sha(Buffer.from(client)),screenshots:shots.length,installerExecuted:false}));
+console.log(JSON.stringify({passed:true,version:pkg.version,builtinMovies:3,desktopBuilds:checkedProfiles.map(p=>p.policy.desktopVersion),nativePinsPerBuild:Object.keys(policy.runtimeFiles).length,payloadPins:checkedProfiles.reduce((count,p)=>count+Object.keys(p.policy.files).length,0),registeredClient:true,clientReproducible:true,clientSha256:sha(Buffer.from(client)),screenshots:shots.length,installerExecuted:false}));

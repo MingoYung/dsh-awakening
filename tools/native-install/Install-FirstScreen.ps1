@@ -15,7 +15,7 @@ $binaryStream=[IO.File]::OpenRead($Executable);$algorithm=[Security.Cryptography
 try{$binaryHash=[BitConverter]::ToString($algorithm.ComputeHash($binaryStream)).Replace('-','').ToLowerInvariant()}finally{$binaryStream.Dispose();$algorithm.Dispose()}
 $binaryPolicy=$null
 # Fixed build profiles only. Each EXE selects its own original/payload whitelist.
-foreach($policyName in @('policy.json','builds\2.0.21-next\policy.json')){
+foreach($policyName in @('policy.json','builds\2.0.21-next\policy.json','builds\2.0.22-next\policy.json')){
  $candidatePolicy=[IO.File]::ReadAllText((Join-Path $PSScriptRoot $policyName),[Text.Encoding]::UTF8)|ConvertFrom-Json
  if($binaryHash-eq$candidatePolicy.exeSha256){if($null-ne$binaryPolicy){throw 'Ambiguous desktop build policy. Nothing was started.'};$binaryPolicy=$candidatePolicy}
 }

@@ -7,8 +7,8 @@ import {resolve,join,isAbsolute,sep,relative,dirname} from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
 import {parseDocument} from 'yaml';
 
-const ID='dsh-awakening',VERSION='0.7.0';
-const PACKAGE_VERSIONS=new Set(['0.7.0']);
+const ID='dsh-awakening',VERSION='0.7.1',MEDIA_VERSION='0.7.0';
+const PACKAGE_VERSIONS=new Set(['0.7.1']);
 const DEFAULTS={enabled:true,sound:true,volume:85,frequency:'startup',timeoutSeconds:45,animationId:'builtin:awakening',videoFit:'cover'};
 const KEYS=Object.keys(DEFAULTS);
 const SCRIPT_FILES=['runtime/scene/brand.js','runtime/scene/animation.js','runtime/scene/morph.js','runtime/scene/desktop-composition.js','runtime/scene/responsive-composition.js','runtime/scene/portrait-camera.js','runtime/safe-video.js','runtime/stage.js','runtime/bootstrap.js'];
@@ -170,7 +170,7 @@ function selectedBuiltin(source,id,prefix){
  for(const entry of manifest.entries){
   if(!plain(entry)||!owns(BUILTIN_FILES,entry.id)||ids.has(entry.id)||entry.kind!=='video'||entry.builtin!==true||entry.removable!==false||entry.fit!=='safe'||entry.durationSeconds!==22||!label(entry.title)||!label(entry.author)||!LICENSES.has(entry.license)||!presentation(entry.presentation,entry.durationSeconds))throw new Error('invalid-builtin-descriptor');
   ids.add(entry.id);const[video,poster]=BUILTIN_FILES[entry.id];
-  if(entry.sourceUrl!=='/dsh-awakening/media/'+video+'?v='+VERSION||entry.posterUrl!=='/dsh-awakening/media/'+poster+'?v='+VERSION||entry.thumbnailUrl!==entry.posterUrl||entry.sha256!==INTEGRITY['media/'+video]||entry.bytes!==source.get('media/'+video).length)throw new Error('builtin-media-mismatch');
+  if(entry.sourceUrl!=='/dsh-awakening/media/'+video+'?v='+MEDIA_VERSION||entry.posterUrl!=='/dsh-awakening/media/'+poster+'?v='+MEDIA_VERSION||entry.thumbnailUrl!==entry.posterUrl||entry.sha256!==INTEGRITY['media/'+video]||entry.bytes!==source.get('media/'+video).length)throw new Error('builtin-media-mismatch');
  }
  const entry=manifest.entries.find(value=>value.id===id);if(!entry)throw new Error('selected-builtin-missing');
  const[video,poster]=BUILTIN_FILES[id];return{...entry,sourceUrl:prefix+video,posterUrl:prefix+poster,thumbnailUrl:prefix+poster};

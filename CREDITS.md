@@ -20,7 +20,9 @@
 
 ## 当前可选首屏兼容安装器
 
-桌面接线基于 Anywhere Labs DSH Desktop NEXT 2.0.19-next 与2.0.21-next的两种已核验构建，Copyright (c) 2026 Anywhere Labs，保留 [MIT 许可](licenses/dsh-desktop-MIT.txt)。2.0.19-next来源及历史通知继续保留；2.0.21-next公开源码固定于 [23d72a157d6df9101476caa8baa65c6d75b26fdd](https://github.com/anywhere-labs/dsh-desktop/tree/23d72a157d6df9101476caa8baa65c6d75b26fdd/dsh-desktop-next)，所带DeepSeek Harness内核为0.2.1-rc.4。对应定点接线保留原生boot文档世代、`documentId` / `profile`、真实界面健康报告及请求鉴权，不修改EXE或Electron fuse。每种构建按各自EXE/原包摘要及受管理范围校验备份，不跨构建恢复。定点 ASAR 编解码与完整性计算包含 `@electron/asar@4.0.1` 的对应 MIT 实现，正文在 `tools/native-install/vendor/`。包内不附带DSH EXE、完整app.asar或其原包备份；许可通知覆盖所引用的相应发布者代码，不表示分发完整宿主。兼容层需明确安装/更新并重启，不是所有 DSH 环境的普通插件接口。
+0.7.1新增2.0.22-next首屏适配，沿用上方三款媒体与各自许可范围；本次未重新生成或替换影片、角色、声音。2.0.22-next公开来源固定于Anywhere Labs提交 [a8b98656fd8bcaa888bcc63489b2ecda68a61084](https://github.com/anywhere-labs/dsh-desktop/tree/a8b98656fd8bcaa888bcc63489b2ecda68a61084/dsh-desktop-next)，所带DeepSeek Harness 0.2.2-rc.1对应上游提交 [66491b05e3f05ad35bcdd4f6cd7ed26041d9e3db](https://github.com/deepseek-ai/deepseek-harness/tree/66491b05e3f05ad35bcdd4f6cd7ed26041d9e3db)。新构建使用其主进程实际导入的哈希命名web-document实现模块的定点接线，保留以下发布者MIT通知、boot文档世代、真实健康报告和原生请求保护；与既有构建分别校验，不分发完整宿主或跨构建恢复。
+
+桌面接线基于Anywhere Labs DSH Desktop NEXT 2.0.19-next、2.0.21-next与2.0.22-next的三种已核验构建，Copyright (c) 2026 Anywhere Labs，保留 [MIT 许可](licenses/dsh-desktop-MIT.txt)。2.0.19-next来源及历史通知继续保留；2.0.21-next公开源码固定于 [23d72a157d6df9101476caa8baa65c6d75b26fdd](https://github.com/anywhere-labs/dsh-desktop/tree/23d72a157d6df9101476caa8baa65c6d75b26fdd/dsh-desktop-next)，所带DeepSeek Harness内核为0.2.1-rc.4。对应定点接线保留原生boot文档世代、`documentId` / `profile`、真实界面健康报告及请求鉴权，不修改EXE或Electron fuse。每种构建按各自EXE/原包摘要及受管理范围校验备份，不跨构建恢复。定点 ASAR 编解码与完整性计算包含 `@electron/asar@4.0.1` 的对应 MIT 实现，正文在 `tools/native-install/vendor/`。包内不附带DSH EXE、完整app.asar或其原包备份；许可通知覆盖所引用的相应发布者代码，不表示分发完整宿主。兼容层需明确安装/更新并重启，不是所有 DSH 环境的普通插件接口。
 
 ## 历史版本来源记录（0.6.1 及更早）
 
