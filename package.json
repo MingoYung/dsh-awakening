@@ -1,6 +1,6 @@
 {
   "name": "dsh-awakening",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "鲸启启动动画：内置 DeepSeek、Codex、Claude Code 三款有声作品，支持自适应构图、本地导入与插件内社区动画库。",
   "type": "module",
   "main": "lib/index.js",

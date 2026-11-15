@@ -7,8 +7,8 @@ import {resolve,join,isAbsolute,sep,relative,dirname} from 'node:path';
 import {createHash,randomUUID} from 'node:crypto';
 import {parseDocument} from 'yaml';
 
-const ID='dsh-awakening',VERSION='0.7.1',MEDIA_VERSION='0.7.0';
-const PACKAGE_VERSIONS=new Set(['0.7.1']);
+const ID='dsh-awakening',VERSION='0.7.2',MEDIA_VERSION='0.7.0';
+const PACKAGE_VERSIONS=new Set(['0.7.2']);
 const DEFAULTS={enabled:true,sound:true,volume:85,frequency:'startup',timeoutSeconds:45,animationId:'builtin:awakening',videoFit:'cover'};
 const KEYS=Object.keys(DEFAULTS);
 const SCRIPT_FILES=['runtime/scene/brand.js','runtime/scene/animation.js','runtime/scene/morph.js','runtime/scene/desktop-composition.js','runtime/scene/responsive-composition.js','runtime/scene/portrait-camera.js','runtime/safe-video.js','runtime/stage.js','runtime/bootstrap.js'];

@@ -1,8 +1,8 @@
 # Native first-screen compatibility installer
 
 This optional tool manages the earliest startup page for the independently
-verified Windows DSH NEXT 2.0.19-next, 2.0.21-next and 2.0.22-next builds. The normal animation plugin works
-without it. The UI action prepares all files, starts an independent helper,
+verified Windows DSH NEXT 2.0.19-next, 2.0.21-next, 2.0.22-next and
+2.0.23-next builds. The normal animation plugin works without it. The UI action prepares all files, starts an independent helper,
 waits for its ready/armed handshake, then asks the native desktop to quit.
 The helper waits for every DSH NEXT process to exit before atomically changing
 `resources/app.asar` and reopening the app. There is no fixed relaunch delay
@@ -11,7 +11,7 @@ and no force-stop operation.
 No npm, Python, network access or separate Node installation is needed. The
 manual entry uses DSH's bundled Node runtime:
 
-Version 0.7.1 requires one explicit carrier update from an identified older
+Version 0.7.2 requires one explicit carrier update from an identified older
 installation: choose Update and restart in the plugin's first-screen settings.
 If a desktop update has replaced the carrier with a supported pristine archive,
 choose Install and restart to establish that build's own verified original backup.
@@ -23,19 +23,17 @@ SHA256 before any installer worker is started. Its original ASAR, candidate
 ASAR and reviewed payload files are independently pinned. An unknown build does
 not fall back to the old profile. Desktop updates may replace app.asar; use
 Install or Update again after an explicitly supported desktop update.
-The 2.0.21-next and 2.0.22-next patches preserve the documentId/profile boot
-contract and real renderer health reporting. In 2.0.22-next main.js directly
-imports the hash-named web-document-ZxxDXtoU.js implementation; the thin
-web-document.js barrel remains unchanged. Its policy pins the current main call
-site and actual implementation chunk, retaining exports and new desktop features.
-Only the early static document gains the local animation carrier; native request
-and forwarding guards remain in place. The 2.0.22-next kernel is 0.2.2-rc.1; ordinary
-Host/client/settings contracts are verified separately from archive handling.
+The 2.0.21-next, 2.0.22-next and 2.0.23-next patches preserve the native
+boot documentId/profile contract and renderer health reporting. In 2.0.23-next,
+main.js directly imports web-document-BSg-xuBI.js. Its policy pins the new
+main call site and the implementation that it actually loads. The patch retains
+native request and forwarding guards along with the desktop's startup timeout
+and renderer performance sampling. See the core verification record for the
+ordinary plugin interfaces in the bundled 0.2.2-rc.3 kernel.
 
 The update preserves the verified original archive, saved settings and user
 animation library. Each policy records the accepted package versions and carrier
-history for its own build. The 0.7.1 update retains the 0.7.0 movies, framing data
-and player; the carrier reads the saved selection and verified local MP4/WebM
+history for its own build. The carrier reads the saved selection and verified local MP4/WebM
 on each startup.
 Changing the selected work does not rewrite the application archive.
 DeepSeek, Codex and Claude Code share media/builtins.json with normal Host
@@ -64,7 +62,7 @@ The original archive is preserved at
 `resources/.dsh-awakening-backup/app.asar`; a previous managed patch is upgraded
 from this verified original, never used as the original backup. Originals and
 managed archive hashes are never transferred between desktop profiles; a
-2.0.21-next backup cannot restore a 2.0.22-next installation. Rollback does
+2.0.22-next backup cannot restore a 2.0.23-next installation. Rollback does
 not require healthy source animation files. Metadata lives under the adjacent
 `jobs/` directory and reports only fixed error codes to the plugin UI.
 
@@ -80,8 +78,8 @@ complete MIT license retained. The native payload adapts the separately
 credited MIT DSH Desktop sources. No EXE, security fuse, shortcut or user
 Profile is modified.
 
-Version 0.7.1 evidence separates actual bundled core-module contracts, isolated
+Version 0.7.2 evidence separates actual bundled core-module contracts, isolated
 archive/carrier/upgrade fixtures and live user acceptance. See
-`../../verification/v0.7.1-core.json`, `../../verification/v0.7.1-native.json` and
-`../../verification/v0.7.1.json`. Offline or synthetic-profile checks do not claim
+`../../verification/v0.7.2-core.json`, `../../verification/v0.7.2-native.json` and
+`../../verification/v0.7.2.json`. Offline or synthetic-profile checks do not claim
 a new live desktop startup, sound or restore acceptance.

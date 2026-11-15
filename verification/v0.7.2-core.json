@@ -1,0 +1,112 @@
+{
+  "version": "0.7.2",
+  "passed": true,
+  "targetDesktopVersion": "2.0.23-next",
+  "targetCoreVersion": "0.2.2-rc.3",
+  "archiveSha256": "003b66e87e2e7f78b4e05d3ac9a5ffce4c54a62efca87495b9a0fec075ae18eb",
+  "scope": "Ordinary Host and client contracts executed against shipped DSH modules and canonical 0.7.2 release bytes in an isolated fixture.",
+  "priorActualContractChecks": 10,
+  "actualReleaseContractChecks": 10,
+  "actualReleaseContractNames": [
+    "actual-core022rc3-module-bootstrap-materializes-with-zero-externals",
+    "actual-core022rc3-dsh-client-manifest-parser-accepts-release-declaration",
+    "actual-core022rc3-loader-registers-and-memoizes-release-factory-with-shipped-react-18",
+    "actual-core022rc3-configforms-get-snapshot-ready-writable-and-value",
+    "actual-core022rc3-configforms-subscribe-set-mutate-boolean-contract",
+    "actual-core022rc3-configforms-rejected-write-recovers-with-false",
+    "actual-core022rc3-slot-registry-registers-release-settings-panel",
+    "actual-core022rc3-cordis-index-inject-event-delivery",
+    "actual-core022rc3-host-index-row-renderer-keeps-head-global-script-protocol",
+    "actual-next23-browser-policy-is-compatible-with-plugin-native-request-guard-and-negative-controls"
+  ],
+  "unchangedCoveredFiles": {
+    "lib/index.js": "fffb4459b2a4ef20d10a4cdd36a35f704e46eaa92fc5979d1dceb6efd6f5a209",
+    "lib/client.js": "c313c360e8469c648b4bdcd88511f6d4c1a1334cb26e15fc840040a016f23952",
+    "lib/native-api.js": "0a9d5a60b36dbde0075664c81e2157ff062ea7f410e3e7caa5bddbe9002c98a0",
+    "lib/animation-library.mjs": "2d5ee11de12fe60dc10f645b6b82db8e11a4b097b37549cc01a00fa0c7c5a68b",
+    "lib/builtins.mjs": "3c4053d7807dba2b5e683f3655af8deb1161843e660cfae0fbd13d9c1784ee4c",
+    "media/builtins.json": "0c4f44e6377853defb2c052e5613552af88f37342e0f7d415e4d522e9e0c84dd",
+    "runtime/stage.js": "f0407d0293f61ea84bde9de3062cd057cf116cd509f54859fc554dd9eb2512db",
+    "runtime/safe-video.js": "85bcbbc541df93083e7c5d70fc7311350b4ee268730a346ccba1ab1e94107fa9"
+  },
+  "sourceComparison": {
+    "priorSourceCommit": "a9677dbc1faa87e0e9d961924576bbe5071700c0",
+    "installedByteIdentical": [
+      "media/builtins.json",
+      "runtime/stage.js",
+      "runtime/safe-video.js"
+    ],
+    "installedLineEndingOnlyDifferences": [
+      "lib/index.js",
+      "lib/client.js",
+      "lib/native-api.js",
+      "lib/animation-library.mjs",
+      "lib/builtins.mjs"
+    ],
+    "worktreeLineEndingOnlyDifferences": [
+      "lib/index.js",
+      "lib/native-api.js",
+      "lib/animation-library.mjs"
+    ]
+  },
+  "additionalChecks": {
+    "manifestAndLockRootVersionAligned": true,
+    "manifestExceptVersionUnchanged": true,
+    "canonicalManifestSha256": "dd6966a5b94ee2dc18e8276518208ad929c18559b2b8f817c9c51d21f36516cf",
+    "actualClientManifestParserAccepted072": true,
+    "actualClientManifestParserSha256": "fc491b97b5d923446faf9ebff238dba6d1f8a55b03e8bf71bea90355ee33bec6"
+  },
+  "dependencyVersions": {
+    "core": "0.2.2-rc.3",
+    "desktop": "2.0.23-next",
+    "node": "v24.16.0",
+    "cordis": "4.1.0",
+    "schemastery": "3.19.0",
+    "react": "18.3.1"
+  },
+  "engineCompatibility": {
+    "manifestRange": ">=0.2.1-rc.2",
+    "actualConsumerIncludesPrerelease": true,
+    "requiresRangeChange": false,
+    "evidenceType": "Inspection of the actual shipped compatibility evaluator",
+    "actualConsumerFiles": [
+      {
+        "file": "node_modules/@deepseek-ai/dsh-app-boot/lib/index.js",
+        "sha256": "ddcffa899bd49ec2f6fcd66edf5dc0fea93fb99b5f9acd5a7f8bfbf1edd89ab6",
+        "regions": [
+          {
+            "line": 1099,
+            "symbol": "satisfies"
+          },
+          {
+            "line": 1102,
+            "symbol": "unmetRequirements"
+          },
+          {
+            "line": 1134,
+            "symbol": "evaluatePluginCompatibility"
+          }
+        ]
+      }
+    ]
+  },
+  "evidenceSha256": {
+    "node_modules/@deepseek-ai/dsh-client-modules/lib/client.js": "fc491b97b5d923446faf9ebff238dba6d1f8a55b03e8bf71bea90355ee33bec6",
+    "node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js": "ebf76f56c79225a3bf484345305ee042f89ed13edd73cc76f8b16766628a17e6",
+    "node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js": "6facb89754f0d21af91491a32646be87ff1b4a25891e44cce1732b02b0fe123b",
+    "plugin/lib/client.js": "c313c360e8469c648b4bdcd88511f6d4c1a1334cb26e15fc840040a016f23952",
+    "node_modules/@deepseek-ai/dsh-host-webserver/lib/index.js": "81a85ab619d8977e090e23124fd4e0e135c944c99b8b199eadea615532f2b2e3",
+    "lib/webserver.js": "0340a2764a60f813f3fe2234944f1ca76ce5baec2fda81ee9fc99699ca8c3a32"
+  },
+  "boundaries": [
+    "Actual shipped core022rc3 ClientModuleSystem, ConfigForms controller, SlotRegistry, Cordis and React were executed; remote RPC and snapshot-store transport primitives are isolated fixtures",
+    "React DOM renderer is not mounted; DOM exports are inert fixture boundaries, no real app/provider graph is booted",
+    "Host index-rendering function region is evaluated verbatim from shipped module, without starting its HTTP server",
+    "Native policy receives a synthetic capability string; real credentials/configuration were not read",
+    "The fixture does not exercise package installation, a full desktop boot, or first-screen playback."
+  ],
+  "sourceChangedForThisCoreCheck": false,
+  "productionProfileStarted": false,
+  "productionFilesChanged": false,
+  "checkedAt": "2026-11-15T11:39:39.860Z"
+}

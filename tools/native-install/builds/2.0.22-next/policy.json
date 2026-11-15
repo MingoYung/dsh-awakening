@@ -3,11 +3,11 @@
   "desktopVersion": "2.0.22-next",
   "exeSha256": "ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288",
   "originalSha256": "c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e",
-  "patchedSha256": "c525939eb23116128a22bf23a78b692abe7995f65ec5baf7b509ca1290262000",
+  "patchedSha256": "5aea4809fec6699ff2cd31542a4fe423ec0ed316f9054e7a6046f50d46951d9d",
   "files": {
     "lib/main.js": "c17968a7ee3bd519af23b8aa3958fde6563137b325530c2d9306dabb60466bf4",
     "lib/web-document-ZxxDXtoU.js": "025ef674d2692a20729f3b8a8a554bf3f4b39df5b905944d8bc30112040a0460",
-    "lib/native-boot-carrier.mjs": "73491420acf7aae90d2373c870d24d833d64ca469987749d678c6bef30a83983"
+    "lib/native-boot-carrier.mjs": "ec127b6fb5d0e366c60fd25b8a8c8ea18af92ed152171c60dbb6e401d94a56b9"
   },
   "runtimeFiles": {
     "runtime/scene/brand.js": "9133132dba57f3eed887768752e41015b4286293f6f8b794cb1d49ce25a39475",
@@ -28,7 +28,9 @@
     "media/claude-code-poster.png": "8402c9b2a467593c33170c15cbbad029a38c9400772563b60a2c3628c63cba1a"
   },
   "packageVersions": [
-    "0.7.1"
+    "0.7.2"
   ],
-  "previousManagedSha256s": []
+  "previousManagedSha256s": [
+    "c525939eb23116128a22bf23a78b692abe7995f65ec5baf7b509ca1290262000"
+  ]
 }

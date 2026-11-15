@@ -1,5 +1,12 @@
 # 更新记录
 
+## 0.7.2 · 2026-11-15
+
+- 为 Windows DSH NEXT 2.0.23-next／内核 0.2.2-rc.3 增加首屏兼容。安装器按 EXE 和原始 ASAR 摘要校验 2.0.19-next、2.0.21-next、2.0.22-next 和 2.0.23-next 四个构建。
+- 接入 2.0.23-next 主进程实际加载的 `web-document-BSg-xuBI.js`，保留启动超时诊断、渲染性能采样、原生鉴权和界面健康报告。
+- 升级插件后，在“首屏播放”选择“更新并重启”。若 DSH 更新已恢复默认首屏，则选择“安装并重启”，由安装器为新版建立独立的原包备份。
+- 0.2.2-rc.3 普通插件接口与首屏兼容验证分别记录在 [v0.7.2-core.json](verification/v0.7.2-core.json) 和 [v0.7.2-native.json](verification/v0.7.2-native.json)。
+
 ## 0.7.1 · 2026-11-05
 
 - 增加Windows DSH NEXT 2.0.22-next／内核0.2.2-rc.1的精确EXE与原始ASAR构建profile，继续支持受核验的2.0.19-next与2.0.21-next。未知构建仍拒绝套用。

@@ -1,0 +1,178 @@
+{
+  "version": "0.7.2",
+  "passed": true,
+  "totalChecks": 99,
+  "checkedAt": "2026-11-15T11:32:36.064636+00:00",
+  "scope": "Exact archive copies, copied native modules and synthetic executable/worker fixtures. Actual carrier HTML and media were exercised in an isolated Edge browser. No production DSH process, profile or archive was modified or launched in these tests.",
+  "builds": {
+    "desktop-2019": {
+      "desktopVersion": "2.0.19-next",
+      "exeSha256": "2c12759a3c3f24f2e6776dae4e511cf5984b227f5e4322fd826fea647bf503b6",
+      "originalAsarSha256": "204e1dcc32ff6a9b661200b7ab97bda1cbd449904e2eddb71c9309cf767e06b5",
+      "candidateAsarSha256": "4702ff7f22189e8c9ac758474063e0560717bb5fc85b7334d413f4231eb28a6d",
+      "policy": "tools/native-install/policy.json",
+      "policySha256": "dbe21108cadbe0844698d6c32cc50f7c1d3c8ccc9741d755adaa898cbd4d0c1e",
+      "payloadSha256": {
+        "lib/main.js": "11510899b06942d62f9fd55cc68356b994e88602501baaf112b75c7d83d7e292",
+        "lib/web-document.js": "4dffeb61cda19903b61cc6aed240760ce234529d7b1da460a0e584bb74ed6c0b",
+        "lib/native-boot-carrier.mjs": "aa3c49daa801c6cf34f54265b4e0bc8eae3d3a4b77cb691c889f8dd7868e6f46"
+      },
+      "previousManagedSha256s": [
+        "3a17430a4534a4754a3ee9d1f189dc83feac268355ee9925ab7b6cd55866229a",
+        "81ce16548abef77d9d108076fe7493852f8baee4b337105999ef715d09245170",
+        "f3caf0dbb42a3c79b9c83bcbbab4929ed40a3c07d999c2643071c51a98b822d3",
+        "3c67135af1a8385f8f9dd170b6b0b08f1953dfcb8427ff99734863d94946892b",
+        "bbd70ec15bdd8945e2220a1fc3d726b787b5cd6d45ffdbd651b58fc883c69f48",
+        "112e0967ced3eaf1ac65bfbd4bb2ce2e3e0b8b2951eefffb3dfb1696d78d9e88",
+        "9174f5f23f40692da524af854c1eb9c9a8b406344406ff7e7d4e502bc45ede98"
+      ],
+      "candidateFixture": "work/release-v072/native/candidates/desktop-2019-v072.asar"
+    },
+    "desktop-2021": {
+      "desktopVersion": "2.0.21-next",
+      "exeSha256": "423feb86156366aa2bc3374933f579027aef44bcc439c5743b72231d480afc00",
+      "originalAsarSha256": "16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349",
+      "candidateAsarSha256": "1f343cba728bd2f8f0b81bef4206f9bcc8f48b1116bacafc41b3be124a317884",
+      "policy": "tools/native-install/builds/2.0.21-next/policy.json",
+      "policySha256": "bdc3f557f39863f4ccc295fc8a0b8bb64aedea7aabdffda729d4a9e0dcf46690",
+      "payloadSha256": {
+        "lib/main.js": "635921f99a73d92e045107306dda99c0223ba21fc23e3fc13d91e25b6c69bfbd",
+        "lib/web-document.js": "4b124813e4aed4d553ce1fd9de0741770b713f8431951a3de899b2500c1c43e5",
+        "lib/native-boot-carrier.mjs": "a2bb12fbf526063650e6ac0523ed22a2b60c1b32c2514eea881465396b8a82be"
+      },
+      "previousManagedSha256s": [
+        "904bfe68869770b8099ad1b04eb9e7f3a72dfb9c56240d0fc11a1797ed17633d",
+        "22af7dfb0d71e5f6e2031dff6b64b260f02000e0fc95f8b5dc0ba06623a6ab49",
+        "668f5cb3e41671b637d65eb1b94060a1b12fa4beb58926405799a440b6423c9b"
+      ],
+      "candidateFixture": "work/release-v072/native/candidates/desktop-2021-v072.asar"
+    },
+    "desktop-2022": {
+      "desktopVersion": "2.0.22-next",
+      "exeSha256": "ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288",
+      "originalAsarSha256": "c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e",
+      "candidateAsarSha256": "5aea4809fec6699ff2cd31542a4fe423ec0ed316f9054e7a6046f50d46951d9d",
+      "policy": "tools/native-install/builds/2.0.22-next/policy.json",
+      "policySha256": "2919a8a0f720857b59818a5114492a5704cb5a7ae5458a2ea0ec6b2305e0986a",
+      "payloadSha256": {
+        "lib/main.js": "c17968a7ee3bd519af23b8aa3958fde6563137b325530c2d9306dabb60466bf4",
+        "lib/web-document-ZxxDXtoU.js": "025ef674d2692a20729f3b8a8a554bf3f4b39df5b905944d8bc30112040a0460",
+        "lib/native-boot-carrier.mjs": "ec127b6fb5d0e366c60fd25b8a8c8ea18af92ed152171c60dbb6e401d94a56b9"
+      },
+      "previousManagedSha256s": [
+        "c525939eb23116128a22bf23a78b692abe7995f65ec5baf7b509ca1290262000"
+      ],
+      "candidateFixture": "work/release-v072/native/candidates/desktop-2022-v072.asar"
+    },
+    "desktop-2023": {
+      "desktopVersion": "2.0.23-next",
+      "exeSha256": "a56a858008a0c24d50e7c20ad651b51c5f5e646a8b98292df2ba0b0708e1bfd5",
+      "originalAsarSha256": "003b66e87e2e7f78b4e05d3ac9a5ffce4c54a62efca87495b9a0fec075ae18eb",
+      "candidateAsarSha256": "cd37f4bc9d75138a5e42562d90978ec60ec10e97e832341b8d24b57fd119aa62",
+      "policy": "tools/native-install/builds/2.0.23-next/policy.json",
+      "policySha256": "f80d84135cfdc5e7ca2da0d5c9737028278da4f50eb15263c91bf24011efa056",
+      "payloadSha256": {
+        "lib/main.js": "1c82ac3afd67bd11920fcd70aa433ebdb13e6d7ff1857f012814398897398bb8",
+        "lib/web-document-BSg-xuBI.js": "a791738b2544445e73f540ebae7bb384fc5d144ca85dbe3f2ec7705a2c6004c4",
+        "lib/native-boot-carrier.mjs": "30f040405b4deb366566f0bc1cb1188cc41c65b1d614be85afde98da7a7a2f06"
+      },
+      "previousManagedSha256s": [],
+      "candidateFixture": "work/release-v072/native/candidates/desktop-2023-v072.asar"
+    }
+  },
+  "runtimeMediaPinsUnchangedFromReleased071": {
+    "runtime/scene/brand.js": "9133132dba57f3eed887768752e41015b4286293f6f8b794cb1d49ce25a39475",
+    "runtime/scene/animation.js": "61a55db356ce2f89e30ce1e098a66c1e1f61bc88699c617a81564e6a97c4e038",
+    "runtime/scene/morph.js": "923240333c95301d9a6f90bd72e8aca28d87b944c3f63f91138825c9b8971434",
+    "runtime/scene/desktop-composition.js": "145c4c50098b6c551bd624c34009669bb9292ec7f1d468d587afa2ef10a0e4fa",
+    "runtime/scene/responsive-composition.js": "391f25bdafd44620d5b061ffb2b8fb19b8adf80c0085f8bcc6ef68a792255ec3",
+    "runtime/scene/portrait-camera.js": "153ec0432d12c76de19bfea462352784b003b9888717c0df8d4dbc8c71c23fa4",
+    "runtime/safe-video.js": "85bcbbc541df93083e7c5d70fc7311350b4ee268730a346ccba1ab1e94107fa9",
+    "runtime/stage.js": "f0407d0293f61ea84bde9de3062cd057cf116cd509f54859fc554dd9eb2512db",
+    "runtime/bootstrap.js": "c82de55af6009153e68dfc54dee1a52060d9e3d9c927620c43e20496bc23ac03",
+    "media/builtins.json": "0c4f44e6377853defb2c052e5613552af88f37342e0f7d415e4d522e9e0c84dd",
+    "media/boot.mp4": "7cd3f3bb33afa18ee2591e10e0d52c6838bd7aa09518780c90628fac3e752849",
+    "media/poster.png": "91395701dd37dec4b3a9f7eb7daf3b5f884f6f3f5f3bb45496ea2613a0e2ff6f",
+    "media/codex.mp4": "9a3a11a7edd9ff1c2185e293f69aed75495f935c665ecb09b3df751900b306a5",
+    "media/codex-poster.png": "7729cb2116c4de284f23d6f3fe0a490437837894bcf9672f064603247c4e5851",
+    "media/claude-code.mp4": "24968a5910759fa1824efbeb6db662c97d5d22754ad4898259f2ca7ddb5787ea",
+    "media/claude-code-poster.png": "8402c9b2a467593c33170c15cbbad029a38c9400772563b60a2c3628c63cba1a"
+  },
+  "packageVersion": "0.7.2",
+  "carrierVersion": "0.7.2",
+  "fixedBuiltinMediaRevision": "0.7.0",
+  "testGroups": [
+    {
+      "evidence": "work/release-v072/native/desktop-2019/full-carrier-report.json",
+      "checks": 17
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2021/full-carrier-report.json",
+      "checks": 17
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2022/full-carrier-report.json",
+      "checks": 17
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2023/full-carrier-report.json",
+      "checks": 17
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2019/upgrade-report.json",
+      "checks": 4
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2021/upgrade-report.json",
+      "checks": 4
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2022/upgrade-report.json",
+      "checks": 4
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2023/lifecycle-report.json",
+      "checks": 2
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2023/web-test-report.json",
+      "checks": 5
+    },
+    {
+      "evidence": "work/release-v072/native/desktop-2023/takeover-report.json",
+      "checks": 4
+    },
+    {
+      "evidence": "work/release-v072/native/profile-report.json",
+      "checks": 8
+    }
+  ],
+  "newDesktopAdaptation": {
+    "sourceDesktop": "2.0.23-next",
+    "core": "0.2.2-rc.3",
+    "mainChange": "One serveWebDocument call receives authoritative home, selected profile, and safe/recovery context. Everything else in the new desktop main module is preserved byte for byte.",
+    "documentChange": "Adapt the web-document-BSg-xuBI.js implementation with its original desktop-contract-YEiRp6ni.js import and a/i/n/r/t export aliases. The thin web-document.js reexport stays byte-identical.",
+    "desktopContractBrowserPolicyHealthAndNativeAuthRetained": true,
+    "singleVideoHostTakeoverExercisedInRealBrowser": true,
+    "hostTakeoverBoundary": "Late Host configure is invoked directly in an isolated browser; a complete production Host/Profile is outside this report."
+  },
+  "installer": {
+    "engineUnchanged": true,
+    "workerAndLauncherIdenticalAcrossProfiles": true,
+    "unknownExeHasNoFallback": true,
+    "exactThreeFileArchiveReplacement": true,
+    "sourceExeOrFuseChanges": false,
+    "npmInstallLifecycle": false,
+    "realProductionRestartAcceptanceByAgent": false
+  },
+  "toolSha256": {
+    "index.mjs": "0b0ca9cc2b3293e5f7ee5adc463b421b6b35b08b5386d053b5c8c8b74dae0e5c",
+    "profiles.mjs": "f0451338c12e2cb6c32ff65c59b06fba0d32a7e2675160c93b384f804126e7b2",
+    "Install-FirstScreen.ps1": "418471a066fd1ea22faa4e43212cb0390d142e7ccf723440e2160bdcc4483b1b",
+    "engine.mjs": "0520a15558a576e034a31e0e958360501f8c0edf8bb3289af3063cc9b58f5a0a",
+    "asar.mjs": "00fc9df78f4d29c51071ab212538ba291c457468aeea099c1fb19a2c4954d13c",
+    "worker.ps1": "5c202751c4f8384e72ffc9145b8f9990556de5d749ee5c785efae071c06eef5c",
+    "launcher.ps1": "7a80fded36f57a60d5c21b29234ee94317d6acd4fa3fe6a1d28edc98bdc8afe4"
+  },
+  "priorPlayerEvidence": "verification/v0.7.0-performance-runtime.json"
+}
