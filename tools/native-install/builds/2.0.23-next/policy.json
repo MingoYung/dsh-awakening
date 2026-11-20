@@ -3,11 +3,11 @@
   "desktopVersion": "2.0.23-next",
   "exeSha256": "a56a858008a0c24d50e7c20ad651b51c5f5e646a8b98292df2ba0b0708e1bfd5",
   "originalSha256": "003b66e87e2e7f78b4e05d3ac9a5ffce4c54a62efca87495b9a0fec075ae18eb",
-  "patchedSha256": "cd37f4bc9d75138a5e42562d90978ec60ec10e97e832341b8d24b57fd119aa62",
+  "patchedSha256": "62da701396cb272f674d2346af1bd5eca4dcdc576e84964a7589126f6d31e506",
   "files": {
     "lib/main.js": "1c82ac3afd67bd11920fcd70aa433ebdb13e6d7ff1857f012814398897398bb8",
     "lib/web-document-BSg-xuBI.js": "a791738b2544445e73f540ebae7bb384fc5d144ca85dbe3f2ec7705a2c6004c4",
-    "lib/native-boot-carrier.mjs": "30f040405b4deb366566f0bc1cb1188cc41c65b1d614be85afde98da7a7a2f06"
+    "lib/native-boot-carrier.mjs": "7bd7e677f9899309255b52fccf665b12ed2dc8ab1283a966c0b108e81a34a005"
   },
   "runtimeFiles": {
     "runtime/scene/brand.js": "9133132dba57f3eed887768752e41015b4286293f6f8b794cb1d49ce25a39475",
@@ -28,7 +28,9 @@
     "media/claude-code-poster.png": "8402c9b2a467593c33170c15cbbad029a38c9400772563b60a2c3628c63cba1a"
   },
   "packageVersions": [
-    "0.7.2"
+    "0.7.3"
   ],
-  "previousManagedSha256s": []
+  "previousManagedSha256s": [
+    "cd37f4bc9d75138a5e42562d90978ec60ec10e97e832341b8d24b57fd119aa62"
+  ]
 }

@@ -1,8 +1,8 @@
 # Native first-screen compatibility installer
 
 This optional tool manages the earliest startup page for the independently
-verified Windows DSH NEXT 2.0.19-next, 2.0.21-next, 2.0.22-next and
-2.0.23-next builds. The normal animation plugin works without it. The UI action prepares all files, starts an independent helper,
+verified Windows DSH NEXT 2.0.19-next, 2.0.21-next, 2.0.22-next,
+2.0.23-next and 2.0.24-next builds. The normal animation plugin works without it. The UI action prepares all files, starts an independent helper,
 waits for its ready/armed handshake, then asks the native desktop to quit.
 The helper waits for every DSH NEXT process to exit before atomically changing
 `resources/app.asar` and reopening the app. There is no fixed relaunch delay
@@ -11,7 +11,7 @@ and no force-stop operation.
 No npm, Python, network access or separate Node installation is needed. The
 manual entry uses DSH's bundled Node runtime:
 
-Version 0.7.2 requires one explicit carrier update from an identified older
+Version 0.7.3 requires one explicit carrier update from an identified older
 installation: choose Update and restart in the plugin's first-screen settings.
 If a desktop update has replaced the carrier with a supported pristine archive,
 choose Install and restart to establish that build's own verified original backup.
@@ -23,13 +23,14 @@ SHA256 before any installer worker is started. Its original ASAR, candidate
 ASAR and reviewed payload files are independently pinned. An unknown build does
 not fall back to the old profile. Desktop updates may replace app.asar; use
 Install or Update again after an explicitly supported desktop update.
-The 2.0.21-next, 2.0.22-next and 2.0.23-next patches preserve the native
-boot documentId/profile contract and renderer health reporting. In 2.0.23-next,
-main.js directly imports web-document-BSg-xuBI.js. Its policy pins the new
+The verified 2.0.21-next through 2.0.24-next patches preserve the native
+boot documentId/profile contract and renderer health reporting. In 2.0.24-next,
+main.js directly imports web-document-BjG9-N6z.js. Its policy pins the new
 main call site and the implementation that it actually loads. The patch retains
 native request and forwarding guards along with the desktop's startup timeout
 and renderer performance sampling. See the core verification record for the
-ordinary plugin interfaces in the bundled 0.2.2-rc.3 kernel.
+ordinary plugin interfaces in the bundled 0.2.2-rc.5 kernel. The HTTP management
+routes also apply the Host connection admission check before native authorization.
 
 The update preserves the verified original archive, saved settings and user
 animation library. Each policy records the accepted package versions and carrier
@@ -62,7 +63,7 @@ The original archive is preserved at
 `resources/.dsh-awakening-backup/app.asar`; a previous managed patch is upgraded
 from this verified original, never used as the original backup. Originals and
 managed archive hashes are never transferred between desktop profiles; a
-2.0.22-next backup cannot restore a 2.0.23-next installation. Rollback does
+2.0.23-next backup cannot restore a 2.0.24-next installation. Rollback does
 not require healthy source animation files. Metadata lives under the adjacent
 `jobs/` directory and reports only fixed error codes to the plugin UI.
 
@@ -78,8 +79,6 @@ complete MIT license retained. The native payload adapts the separately
 credited MIT DSH Desktop sources. No EXE, security fuse, shortcut or user
 Profile is modified.
 
-Version 0.7.2 evidence separates actual bundled core-module contracts, isolated
-archive/carrier/upgrade fixtures and live user acceptance. See
-`../../verification/v0.7.2-core.json`, `../../verification/v0.7.2-native.json` and
-`../../verification/v0.7.2.json`. Offline or synthetic-profile checks do not claim
-a new live desktop startup, sound or restore acceptance.
+Version 0.7.3 checks cover the bundled core, Host route admission, and
+first-screen installation and restoration on isolated archives. See
+`../../verification/v0.7.3.json` for the scope and results.

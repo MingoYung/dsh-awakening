@@ -33,6 +33,7 @@ const profileSpecs=[
  {root:'tools/native-install/builds/2.0.21-next',version:'2.0.21-next',exe:'423feb86156366aa2bc3374933f579027aef44bcc439c5743b72231d480afc00',original:'16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349'},
  {root:'tools/native-install/builds/2.0.22-next',version:'2.0.22-next',exe:'ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288',original:'c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e',document:'lib/web-document-ZxxDXtoU.js'},
  {root:'tools/native-install/builds/2.0.23-next',version:'2.0.23-next',exe:'a56a858008a0c24d50e7c20ad651b51c5f5e646a8b98292df2ba0b0708e1bfd5',original:'003b66e87e2e7f78b4e05d3ac9a5ffce4c54a62efca87495b9a0fec075ae18eb',document:'lib/web-document-BSg-xuBI.js'},
+ {root:'tools/native-install/builds/2.0.24-next',version:'2.0.24-next',exe:'37b45397eec580d32c8be1355e2065e01a83fa4c946749cb1d0acefca94cf3d8',original:'3bccf05a97aeb6bed3c3cc7ebe958533c0e6e4afa6c902d274776b572411aefa',document:'lib/web-document-BjG9-N6z.js'},
 ];
 const checkedProfiles=[],nativeSyntax=new Set(),digestPattern=/^[a-f0-9]{64}$/;
 const requiredRuntime=['runtime/safe-video.js','runtime/stage.js','runtime/bootstrap.js','media/builtins.json','media/boot.mp4','media/codex.mp4','media/claude-code.mp4'];

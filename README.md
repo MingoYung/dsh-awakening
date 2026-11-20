@@ -2,7 +2,7 @@
 
 可更换作品的 DSH 开机动画插件。内置 **DeepSeek · 鲸启、Codex · 构想成形、Claude Code · 光标唤醒** 三款22秒有声作品，可在插件内预览、切换，也可导入 MP4 / WebM 或浏览社区动画库。
 
-**当前版本：[v0.7.2](https://github.com/MingoYung/dsh-awakening/releases/tag/v0.7.2)** · [预构建安装包](https://github.com/MingoYung/dsh-awakening/releases/download/v0.7.2/dsh-awakening-0.7.2.tgz) · [动画库](https://github.com/MingoYung/dsh-awakening-library)
+**当前版本：[v0.7.3](https://github.com/MingoYung/dsh-awakening/releases/tag/v0.7.3)** · [预构建安装包](https://github.com/MingoYung/dsh-awakening/releases/download/v0.7.3/dsh-awakening-0.7.3.tgz) · [动画库](https://github.com/MingoYung/dsh-awakening-library)
 
 以下设置图来自独立浏览器中的真实插件组件，不是 DSH 冷启动截图。
 
@@ -32,7 +32,7 @@ dsh plugin add /absolute/path/to/dsh-awakening
 
 安装或升级后重启 DSH。仓库和 `.tgz` 均提供客户端构建结果、媒体与本机工具，正常安装不需要本机构建。未发布至 npm，请以本仓库及固定 Release 为来源。
 
-从旧版升级会保留音量、播放频率和本地导入的视频；`builtin:awakening` 仍代表默认 DeepSeek 作品。0.7.2 增加 2.0.23-next 的首屏适配。已安装首屏兼容层的用户，需要在设置中的“首屏播放”显式选择“更新并重启”一次；若DSH升级已换回默认原包，则选择“安装并重启”。普通插件更新不会自动改写桌面应用包。
+从旧版升级会保留音量、播放频率和本地导入的视频；`builtin:awakening` 仍代表默认 DeepSeek 作品。0.7.3 增加 2.0.24-next 的首屏适配。已安装首屏兼容层的用户，需要在设置中的“首屏播放”显式选择“更新并重启”一次；若DSH升级已换回默认原包，则选择“安装并重启”。普通插件更新不会自动改写桌面应用包。
 
 ## 预览、更换与社区动画库
 
@@ -60,13 +60,13 @@ dsh plugin add /absolute/path/to/dsh-awakening
 
 普通插件在 Host 就绪后注入。可选首屏兼容层接入桌面初始页面，让动画与后台加载并行，Host 接管同一个播放器和声音。
 
-0.7.2 支持 **Windows DSH NEXT 2.0.19-next、2.0.21-next、2.0.22-next 和 2.0.23-next 的四个已核验构建**。2.0.23-next 随包内核为 0.2.2-rc.3。工具按 EXE 摘要选择对应的兼容配置，再核对原包或已识别的兼容包。即使显示版本相同，也须通过摘要校验。各构建的摘要见 [COMPATIBILITY.md](COMPATIBILITY.md)。其他 DSH 版本可按其普通插件兼容性在 Host 就绪后播放。
+0.7.3 支持 **Windows DSH NEXT 2.0.19-next、2.0.21-next、2.0.22-next、2.0.23-next 和 2.0.24-next 的五个已核验构建**。2.0.24-next 随包内核为 0.2.2-rc.5。工具按 EXE 摘要选择对应的兼容配置，再核对原包或已识别的兼容包。即使显示版本相同，也须通过摘要校验。各构建的摘要见 [COMPATIBILITY.md](COMPATIBILITY.md)。其他 DSH 版本可按其普通插件兼容性在 Host 就绪后播放。
 
 在 **播放设置 → 首屏播放** 查看状态，明确选择“安装并重启”“更新并重启”或“恢复默认首屏并重启”。先保存工作；工具先准备可恢复的包，再正常退出 DSH，等待全部进程退出后校验、原子替换并重开。它不会强杀进程，不用固定延时猜测退出。取消、未知构建或校验失败会保留原包。
 
 该功能会显式修改 DSH 的 `resources/app.asar`，原始备份在同目录 `.dsh-awakening-backup/app.asar`。每种构建只接受自身原包及其摘要匹配的备份，不跨构建恢复；宿主升级后旧备份不能替代新原包，备份消失时先重新核验当前原包。不改 EXE、Electron fuse、快捷方式或账户配置。DSH 升级后需重新核验，不自动套用旧补丁。兼容工具按随包清单核对三款媒体和安全构图配置；更换作品不需要每次重写ASAR。
 
-2.0.23-next 的适配接入主进程实际导入的 `web-document-BSg-xuBI.js`，沿用原生启动流程的 `documentId` / `profile`、发送方校验、界面健康报告和新版启动诊断。新版内核的普通插件接口与首屏安装、恢复和接管分别验证，见 [0.7.2 验证记录](verification/v0.7.2.json)。
+2.0.24-next 的适配接入主进程实际导入的 `web-document-BjG9-N6z.js`，保留窗口与文档校验、界面健康报告和启动诊断。内置媒体、动画库和首屏管理的 HTTP 路由使用 DSH 的请求准入检查，写操作继续检验各自的操作令牌。见 [0.7.3 验证记录](verification/v0.7.3.json)。
 
 手动入口：
 

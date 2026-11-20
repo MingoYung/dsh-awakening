@@ -1,0 +1,295 @@
+{
+  "version": "0.7.3",
+  "checkedAtLocal": "2026-11-20",
+  "scope": "Archive and Host compatibility checks using isolated copies of the shipped modules, with real MP4/WebM samples. Physical installation is verified separately.",
+  "desktopRelease": "https://github.com/anywhere-labs/dsh-desktop/releases/tag/v2.0.24-next",
+  "coreRelease": "https://github.com/deepseek-ai/deepseek-harness/releases/tag/dsh-v0.2.2-rc.5",
+  "core": {
+    "checks": [
+      {
+        "name": "actual-core022rc5-module-bootstrap-materializes-with-zero-externals",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-dsh-client-manifest-parser-accepts-release-declaration",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-loader-registers-and-memoizes-release-factory-with-shipped-react-18",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-configforms-get-snapshot-ready-writable-and-value",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-configforms-subscribe-set-mutate-boolean-contract",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-configforms-rejected-write-recovers-with-false",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-slot-registry-registers-release-settings-panel",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-cordis-index-inject-event-delivery",
+        "passed": true
+      },
+      {
+        "name": "actual-core022rc5-host-index-row-renderer-keeps-head-global-script-protocol",
+        "passed": true
+      },
+      {
+        "name": "actual-next24-browser-policy-is-compatible-with-plugin-native-request-guard-and-negative-controls",
+        "passed": true
+      }
+    ],
+    "versions": {
+      "core": "0.2.2-rc.5",
+      "desktop": "2.0.24-next",
+      "node": "v24.16.0",
+      "cordis": "4.1.0",
+      "schemastery": "3.19.0",
+      "react": "18.3.1"
+    },
+    "moduleDigests": {
+      "node_modules/@deepseek-ai/dsh-client-modules/lib/client.js": "fc491b97b5d923446faf9ebff238dba6d1f8a55b03e8bf71bea90355ee33bec6",
+      "node_modules/@deepseek-ai/dsh-client-ui-settings/lib/client.js": "ebf76f56c79225a3bf484345305ee042f89ed13edd73cc76f8b16766628a17e6",
+      "node_modules/@deepseek-ai/dsh-client-ui-renderer/lib/client.js": "6facb89754f0d21af91491a32646be87ff1b4a25891e44cce1732b02b0fe123b",
+      "plugin/lib/client.js": "c313c360e8469c648b4bdcd88511f6d4c1a1334cb26e15fc840040a016f23952",
+      "node_modules/@deepseek-ai/dsh-host-webserver/lib/index.js": "81a85ab619d8977e090e23124fd4e0e135c944c99b8b199eadea615532f2b2e3",
+      "lib/webserver.js": "c40644e67888fa7b8ce4c05e490cb559d3b8321b28e22fe7726870573b86c150"
+    },
+    "fixtureBoundaries": [
+      "Actual shipped core022rc5 ClientModuleSystem, ConfigForms controller, SlotRegistry, Cordis and React were executed; remote RPC and snapshot-store transport primitives are isolated fixtures",
+      "React DOM renderer is not mounted; DOM exports are inert fixture boundaries, no real app/provider graph is booted",
+      "Host index-rendering function region is evaluated verbatim from shipped module, without starting its HTTP server",
+      "Native policy receives a synthetic capability string; real credentials/configuration were not read",
+      "Real DSH profile boot and native installation remain root validation tasks"
+    ]
+  },
+  "httpAdmission": {
+    "passed": true,
+    "testGroups": [
+      "all-16-routes-reject-untrusted-host-origin-and-unauthenticated-requests-before-dispatch",
+      "same-origin-authenticated-host-accepts-builtin-get-head-and-range",
+      "browser-session-is-required-and-remains-expiring",
+      "native-status-and-writes-retain-desktop-and-action-authorization",
+      "library-import-download-range-remove-and-integrity-checks",
+      "next-browser-switch-still-gates-library-while-desktop-works",
+      "missing-or-failing-connection-does-not-dispatch-and-is-looked-up-again"
+    ],
+    "routes": 16,
+    "rejectedCasesPerRoute": 5,
+    "core": "0.2.2-rc.5",
+    "desktop": "2.0.24-next",
+    "hostIndexSha256": "2dc6a345c3a9fd2dbc750eccb9fafaba8f3ad8fbce54c47d2cc49d11b612d9ce",
+    "scope": "Actual Cordis, DSH Connection, NEXT browser decision and plugin routes on a temporary local listener. Test credential store, installer and catalog network are isolated fixtures.",
+    "hostIndexSha256Lf": "696cf8a5600d21abd569de114f48b1c1dd1ec0d539f5fffb1cd2b40c6f4bc4ea"
+  },
+  "native": {
+    "archives": {
+      "desktop-2019": {
+        "unchangedEntries": 23797,
+        "sourcePayloadBytes": 175621688,
+        "sha256": "bf44629168c52771acf1eecf6406813a8c015c2007b9e632e5a46c40ec9a6d7b",
+        "bytes": 181172499,
+        "desktopVersion": "2.0.19-next",
+        "originalSha256": "204e1dcc32ff6a9b661200b7ab97bda1cbd449904e2eddb71c9309cf767e06b5"
+      },
+      "desktop-2021": {
+        "unchangedEntries": 24482,
+        "sourcePayloadBytes": 184775031,
+        "sha256": "d689d51e294c0cec3cfdc211b30f12bf0a71b280439c300c736153656d7ccab6",
+        "bytes": 190552925,
+        "desktopVersion": "2.0.21-next",
+        "originalSha256": "16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349"
+      },
+      "desktop-2022": {
+        "unchangedEntries": 28793,
+        "sourcePayloadBytes": 230558987,
+        "sha256": "db8c8cc7d52e8b1dca9248c3e071bc615a2c6a056f98ef3bab454056e019d58b",
+        "bytes": 237382233,
+        "desktopVersion": "2.0.22-next",
+        "originalSha256": "c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e"
+      },
+      "desktop-2023": {
+        "unchangedEntries": 33618,
+        "sourcePayloadBytes": 266269536,
+        "sha256": "62da701396cb272f674d2346af1bd5eca4dcdc576e84964a7589126f6d31e506",
+        "bytes": 274161155,
+        "desktopVersion": "2.0.23-next",
+        "originalSha256": "003b66e87e2e7f78b4e05d3ac9a5ffce4c54a62efca87495b9a0fec075ae18eb"
+      },
+      "desktop-2024": {
+        "unchangedEntries": 33644,
+        "sourcePayloadBytes": 266445858,
+        "sha256": "0201a0501180d6bd4efc39e91e12f3918e99637f0b7c986c39b2856d01730934",
+        "bytes": 274370446,
+        "desktopVersion": "2.0.24-next",
+        "originalSha256": "3bccf05a97aeb6bed3c3cc7ebe958533c0e6e4afa6c902d274776b572411aefa"
+      }
+    },
+    "tests": {
+      "carrier": {
+        "checks": 17,
+        "cases": [
+          {
+            "name": "builtin-actual-pinned-runtime",
+            "passed": true
+          },
+          {
+            "name": "three-builtin-descriptors-identical-to-shared-document",
+            "passed": true
+          },
+          {
+            "name": "builtin-range-actual-bytes",
+            "passed": true
+          },
+          {
+            "name": "builtin-head-no-body",
+            "passed": true
+          },
+          {
+            "name": "asset-rejects-method-and-bad-range",
+            "passed": true
+          },
+          {
+            "name": "builtin-unaffected-by-broken-library",
+            "passed": true
+          },
+          {
+            "name": "custom-real-mp4-without-canvas-kind",
+            "passed": true
+          },
+          {
+            "name": "custom-real-range-shared-sound-track",
+            "passed": true
+          },
+          {
+            "name": "validated-bytes-survive-source-deletion",
+            "passed": true
+          },
+          {
+            "name": "cache-tampering-fails-closed",
+            "passed": true
+          },
+          {
+            "name": "safe-and-recovery-skip-entire-carrier",
+            "passed": true
+          },
+          {
+            "name": "disabled-and-uninstalled-skip",
+            "passed": true
+          },
+          {
+            "name": "unknown-package-version-skip",
+            "passed": true
+          },
+          {
+            "name": "library-junction-skip",
+            "passed": true
+          },
+          {
+            "name": "real-webm-generated-codec-container",
+            "passed": true
+          },
+          {
+            "name": "changed-pinned-runtime/stage.js-skips-native",
+            "passed": true
+          },
+          {
+            "name": "changed-pinned-runtime/safe-video.js-skips-native",
+            "passed": true
+          }
+        ],
+        "scope": "Full v0.7.3 copied native carrier with exact final runtime in a package-version 0.7.3 fixture, actual MP4 and generated playable VP9/Opus WebM. Isolated home/profile/cache only; no installed DSH or actual profile writes, no GUI launch."
+      },
+      "initialDocument": {
+        "checks": 5,
+        "cases": [
+          {
+            "name": "initial-app-html-has-early-carrier-and-upstream-ready-script",
+            "passed": true
+          },
+          {
+            "name": "owned-native-range-serves-exact-hashed-codex-bytes",
+            "passed": true
+          },
+          {
+            "name": "safe-recovery-and-shell-do-not-inject-or-serve-carrier",
+            "passed": true
+          },
+          {
+            "name": "profile-boundary-head-and-path-validation-retained",
+            "passed": true
+          },
+          {
+            "name": "native-request-owner-frame-origin-marker-guards-retained",
+            "passed": true
+          }
+        ],
+        "scope": "Actual copied 2.0.24 hashed Web document and carrier functions with isolated profile and pinned copied package; no Electron/production process, no Host or external request."
+      },
+      "playbackHandoff": {
+        "checks": 4,
+        "cases": [
+          {
+            "name": "actual-earliest-head-starts-one-native-video-and-audio",
+            "passed": true
+          },
+          {
+            "name": "late-host-configure-retains-video-source-clock-and-applies-volume",
+            "passed": true,
+            "firstTime": 0.165242,
+            "afterTime": 0.331704
+          },
+          {
+            "name": "post-takeover-resize-keeps-the-same-video",
+            "passed": true
+          },
+          {
+            "name": "escape-cleans-overlay-without-page-errors",
+            "passed": true
+          }
+        ],
+        "scope": "Actual .23 carrier head and unchanged real media/player in isolated Edge HTTP browser; late Host configure is invoked directly. No complete production Host/Profile, native Electron window or human audio listening."
+      },
+      "freshInstallAndRollback": {
+        "checks": 2,
+        "cases": [
+          {
+            "name": "pristine-first-install-creates-immutable-original-backup",
+            "passed": true
+          },
+          {
+            "name": "fresh-install-rollback-preserves-first-original",
+            "passed": true
+          }
+        ],
+        "scope": "Pristine first install and rollback in workspace, real original archive copy, synthetic executable and authorized fixture worker only."
+      },
+      "priorManagedUpgrade": {
+        "checks": 3,
+        "cases": [
+          {
+            "name": "pristine-first-install-creates-immutable-original-backup",
+            "passed": true
+          },
+          {
+            "name": "fresh-install-rollback-preserves-first-original",
+            "passed": true
+          },
+          {
+            "name": "managed-072-upgrades-from-own-original-backup",
+            "passed": true
+          }
+        ],
+        "scope": "Pristine install, 0.7.2 managed upgrade, and rollback in workspace, real original archive copy, synthetic executable and authorized fixture worker only."
+      }
+    }
+  }
+}

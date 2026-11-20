@@ -1,6 +1,6 @@
 # DSH NEXT 启动阶段与兼容边界
 
-核对日期为 2026-11-15。0.7.2 的首屏兼容覆盖 Windows DSH NEXT 的四个精确构建。2.0.19-next 的内核为 0.2.1-rc.2，2.0.21-next 为 0.2.1-rc.4，2.0.22-next 为 0.2.2-rc.1，2.0.23-next 为 0.2.2-rc.3。文中的构建配置用于识别宿主文件，用户 Profile 仍按 DSH 自身规则选择。
+核对日期为 2026-11-20。0.7.3 的首屏兼容覆盖 Windows DSH NEXT 的五个精确构建。2.0.19-next 的内核为 0.2.1-rc.2，2.0.21-next 为 0.2.1-rc.4，2.0.22-next 为 0.2.2-rc.1，2.0.23-next 为 0.2.2-rc.3，2.0.24-next 为 0.2.2-rc.5。文中的构建配置用于识别宿主文件，用户 Profile 仍按 DSH 自身规则选择。
 
 ## Host 注入与最早首屏
 
@@ -8,7 +8,7 @@
 
 可选首屏兼容层接入经过核验的初始文档，从本地资源播放，随后由 Host 复用同一播放器、进度和声音。它需用户明确安装/更新及重启；不宣称所有 DSH 版本安装普通插件即可接管最早首帧。
 
-仅白名单中的Windows NEXT 2.0.19-next / 2.0.21-next / 2.0.22-next / 2.0.23-next EXE、各自原始ASAR和已识别的受管理兼容包可处理。工具先按 EXE 的精确 SHA256 选择构建 profile，再核对对应原包、受管理包及资源范围；未知 profile 或无法匹配的原包直接拒绝，不回退使用2.0.19-next的默认 policy。EXE、Electron fuse、快捷方式和账户配置不改。
+仅白名单中的Windows NEXT 2.0.19-next / 2.0.21-next / 2.0.22-next / 2.0.23-next / 2.0.24-next EXE、各自原始ASAR和已识别的受管理兼容包可处理。工具先按 EXE 的精确 SHA256 选择构建 profile，再核对对应原包、受管理包及资源范围；未知 profile 或无法匹配的原包直接拒绝，不回退使用2.0.19-next的默认 policy。EXE、Electron fuse、快捷方式和账户配置不改。
 
 | 构建 | EXE SHA256 | 原始 ASAR SHA256 | policy |
 | --- | --- | --- | --- |
@@ -16,12 +16,15 @@
 | Windows NEXT 2.0.21-next | `423feb86156366aa2bc3374933f579027aef44bcc439c5743b72231d480afc00` | `16f2c62b1ccc98a968d9c7cf5edcd7af7a1e7690c2fba8cea361d1726d0db349` | `tools/native-install/builds/2.0.21-next/policy.json` |
 | Windows NEXT 2.0.22-next | `ed9d42ce15a8e5f081ad389807d8093d59e8831717680f479fdc59ad46984288` | `c7057e19e777ff6423815268901ecfe30382323e0dc2e5405b7a7e915328607e` | `tools/native-install/builds/2.0.22-next/policy.json` |
 | Windows NEXT 2.0.23-next | `a56a858008a0c24d50e7c20ad651b51c5f5e646a8b98292df2ba0b0708e1bfd5` | `003b66e87e2e7f78b4e05d3ac9a5ffce4c54a62efca87495b9a0fec075ae18eb` | `tools/native-install/builds/2.0.23-next/policy.json` |
+| Windows NEXT 2.0.24-next | `37b45397eec580d32c8be1355e2065e01a83fa4c946749cb1d0acefca94cf3d8` | `3bccf05a97aeb6bed3c3cc7ebe958533c0e6e4afa6c902d274776b572411aefa` | `tools/native-install/builds/2.0.24-next/policy.json` |
 
 各构建的受管理补丁摘要及历史升级范围由对应 policy 单独记录；版本字符串不是放行依据。不能把公开 Setup.exe / Portable.zip 的压缩分发摘要当作安装后 EXE / ASAR 散件摘要。
 
-2.0.21-next、2.0.22-next 和 2.0.23-next 的 `dshDesktopBoot.ready()` 返回包含 `documentId` / `profile` 的原生boot对象，主进程会在异步取得injections后再次检查sender与文档世代。兼容层保持该对象及真实UI mount健康报告，动画与正常UI并行，不伪报healthy；跳过、失败与重载不把旧文档报告送到新文档。原生request guard的owner/frame/origin/token边界保留，不修改EXE或fuse。
+2.0.21-next 至 2.0.24-next 的受核验构建中，`dshDesktopBoot.ready()` 返回包含 `documentId` / `profile` 的原生boot对象，主进程会在异步取得injections后再次检查sender与文档世代。兼容层保持该对象及真实UI mount健康报告，动画与正常UI并行，不伪报healthy；跳过、失败与重载不把旧文档报告送到新文档。原生request guard的owner/frame/origin/token边界保留，不修改EXE或fuse。
 
 2.0.22-next 与 2.0.23-next 的 `lib/main.js` 分别直接导入 `lib/web-document-ZxxDXtoU.js` 与 `lib/web-document-BSg-xuBI.js`。兼容层从各自原包的 `main.js` 与实际实现模块构建，保留导出别名、独立的 `lib/web-document.js` 转发入口及新版 2.0.23-next 的启动超时诊断和性能采样。替换路径、候选摘要和兼容包历史由各构建的 policy 固定。
+
+2.0.24-next 主进程导入 `lib/web-document-BjG9-N6z.js`。该文档实现与 2.0.23-next 仅有桌面合同依赖名差异，首屏接线沿用已审查的变更。新主进程基于其原始应用包单独生成。
 
 ## 首屏兼容升级与作品选择
 
@@ -29,7 +32,7 @@
 
 从各构建 policy 所列的旧版兼容包升级时，在首屏管理中明确选择“更新并重启”。若桌面升级已替换为新版默认原包，则为当前受支持构建选择“安装并重启”，并建立对应的新原包备份。工具等全部DSH进程正常退出后再次核对并原子替换、重开；取消、失败或超时不强杀进程。普通插件更新不会自动改ASAR。载体就绪后，切换作品只改变保存的选择，下次启动读取所选作品，不为每次换片重写应用包。
 
-原始备份在 `resources/.dsh-awakening-backup/app.asar`，只用于当前所选构建 profile，且必须匹配该构建的原始摘要。恢复前再次检查当前 EXE、原包备份及受管理包；不同构建的备份不能互换，不能把2.0.19-next原包写入2.0.21-next应用。宿主升级或旧备份消失时先核验新原包，再为当前构建建立可校验备份，不能凭旧 marker 或文件名放行。2.0.23-next 必须使用其自身原包备份。导入视频和播放设置独立保留；恢复默认首屏使用同一受保护的流程。
+原始备份在 `resources/.dsh-awakening-backup/app.asar`，只用于当前所选构建 profile，且必须匹配该构建的原始摘要。恢复前再次检查当前 EXE、原包备份及受管理包；不同构建的备份不能互换，不能把2.0.19-next原包写入2.0.21-next应用。宿主升级或旧备份消失时先核验新原包，再为当前构建建立可校验备份，不能凭旧 marker 或文件名放行。2.0.24-next 必须使用其自身原包备份。导入视频和播放设置独立保留；恢复默认首屏使用同一受保护的流程。
 
 首屏读取配置时只接受可静态判定的结构。禁用、卸载、安全/恢复模式、未审核包或资源校验失败时保守回到默认启动。账号、会话、Host token和其他插件配置不进入首屏资源。工具API继续要求本机私有请求策略、同源JSON和当前Host动作令牌，没有npm安装期副作用。
 
@@ -45,12 +48,12 @@ Claude Code横向标识与三部人物尾段使用各自安全区，窄窗和竖
 
 0.7.0引入的性能优化针对全帧复制与重复布局开销；短样本中的 `droppedVideoFrames=0` 不能证明所有设备或所有系统负载下都无卡顿。具体对照数据与测试环境见验证记录，仍应以实际DSH播放体验复验。
 
-## 0.2.2-rc.3 普通插件接口
+## 普通插件接口与请求准入
 
-0.2.2-rc.3 随包提供 Cordis 4.1.0、Schemastery 3.19.0 与 React 18.3.1。以实际内核运行隔离检查，覆盖插件识别、客户端模块加载、Host 注入、设置面板注册、设置读写及原生请求校验。DSH 的 manifest 兼容性判断为预发布内核启用 `includePrerelease`，复用 `engines.dsh: >=0.2.1-rc.2`。见 [v0.7.2-core.json](verification/v0.7.2-core.json)。
+0.2.2-rc.5 随包提供 Cordis 4.1.0、Schemastery 3.19.0 与 React 18.3.1。五个已核验构建中的 `connection.requestRejection` 检查 Host、Origin 和已认证会话。鲸启的 16 条 HTTP 路由在处理请求前调用该检查，并保留 NEXT 桌面授权、同源检查和各组操作令牌。首屏载体使用应用内的本地资源通道，在 Host 就绪前即可播放。
 
 ## 验证口径
 
-源码构建、真实内核模块、独立浏览器与 ASAR 副本的安装、升级及恢复各有验证记录。2.0.23-next 的实际冷启动、声音和恢复需要本机单独验收。见 [0.7.2 汇总](verification/v0.7.2.json)、[内核接口检查](verification/v0.7.2-core.json)与[首屏兼容层检查](verification/v0.7.2-native.json)。
+源码构建、真实内核模块和兼容层副本各有独立验证记录。见 [0.7.3 验证记录](verification/v0.7.3.json)。
 
 早期排查参考了 [DSH Desktop NEXT](https://github.com/anywhere-labs/dsh-desktop/tree/master/dsh-desktop-next) 的主进程、preload和web-document源码，以及社区dsh-550c-boot、dsh-video-skin和dsh-boot-animation。构建时序结论以本机原始产物为直接证据，不保证上游移动分支逐行一致。
